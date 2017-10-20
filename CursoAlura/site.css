@@ -1,0 +1,19 @@
+h1 {
+  font-size: 48px;
+  font-family: "Open Sans Condensed",sans-serif;
+  color: #ffffff;
+  text-align: center;
+  background-color: #002244;
+}
+body {
+  background-color: #F2FFFC;
+  font-family: "Open Sans Condensed",sans-serif;
+}
+
+h2 {
+  font-family: "Open Sans Condensed",sans-serif;
+  font-size: 20px;
+}
+p {
+  text-align: justify;
+}

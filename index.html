@@ -1,48 +1,36 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<title>Introdução ao Vue JS</title>
-	<script src="https://unpkg.com/vue"></script>
-</head>
-<body>
-
-	<div id="app">
-
-		
-		<jaci-titulo titulo="Formulários"></jaci-titulo>
-
-		<p>Text: {{texto}}</p>
-		<p>
-			<input type="text" v-model="texto">
-		</p>
-
-		<p>Textarea: {{textarea}}</p>
-		<p style="white-space:pre-line">{{textarea}}</p>
-		<p>
-			<textarea v-model="textarea" rows="5" cols="50"></textarea>
-		</p>
-		
-		
-	</div>
-
-	<script type="text/javascript">
-	Vue.component('jaci-titulo',{
-		props:['titulo'],
-		
-		template:'<h2>{{ titulo }}</h2>'
-	});
-
-		var app = new Vue({
-			el:"#app",
-			data: {
-				texto: '',
-				textarea:''
-
-			},
-			
-		});
-	</script>
-
-</body>
+	<head>
+		<meta charset="utf-8">
+		<title>Introdução ao Vue JS</title>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<div id="app">
+				<jaci-titulo titulo="Formulários"></jaci-titulo>
+				<p>Text: {{texto}}</p>
+				<p>
+					<input type="text" v-model="texto">
+				</p>
+				<p>Textarea: {{textarea}}</p>
+				<p style="white-space:pre-line">{{textarea}}</p>
+				<p>
+					<textarea v-model="textarea" rows="5" cols="50"></textarea>
+				</p>
+		</div>
+		<script type="text/javascript">
+				Vue.component('jaci-titulo',{
+					props:['titulo'],
+					template:'<h2>{{ titulo }}</h2>'
+				});
+					var app = new Vue({
+						el:"#app",
+						data: {
+							texto: '',
+							textarea:'',
+							area:''
+						},
+					});
+		</script>
+	</body>
 </html>
