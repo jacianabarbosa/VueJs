@@ -7,28 +7,17 @@
 	</head>
 	<body>
 		<div id="app">
-				<jaci-titulo titulo="Formulários"></jaci-titulo>
-				<p>Text: {{texto}}</p>
-				<p>
-					<input type="text" v-model="texto">
-				</p>
-				<p>Textarea: {{textarea}}</p>
-				<p style="white-space:pre-line">{{textarea}}</p>
-				<p>
-					<textarea v-model="textarea" rows="5" cols="50"></textarea>
-				</p>
+			{{ msg }}
+			<p v-bind:title="titulo">teste com title</p>
 		</div>
+
 		<script type="text/javascript">
-				Vue.component('jaci-titulo',{
-					props:['titulo'],
-					template:'<h2>{{ titulo }}</h2>'
-				});
+
 					var app = new Vue({
 						el:"#app",
 						data: {
-							texto: '',
-							textarea:'',
-							area:''
+							msg:'Vue JS', 	
+							titulo: 'teste com V-bind'
 						},
 					});
 		</script>
