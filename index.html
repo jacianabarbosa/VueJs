@@ -9,17 +9,22 @@
 	<body>
 
 		<div id="app">
-			<jaci-titulo></jaci-titulo>
+			<jaci-titulo v-bind:titulo="Esse é o título"></jaci-titulo>
+			<input type="text" v-model="meuTitulo">
 		</div>
 
 		<script type="text/javascript">
 
 		Vue.component('jaci-titulo', {
-			template:'<h2>Componente de Título</h2>'
+			props:['titulo'],
+			template:'<h2>{{titulo}}</h2>'
 		});
 
 			var app = new Vue({
-				el: "#app"
+				el: "#app",
+				data:{
+					meuTitulo:'Esse é o título'
+				}
 			});
 			
 		</script>
