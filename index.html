@@ -9,21 +9,40 @@
 	<body>
 
 		<div id="app">
-			<jaci-titulo v-bind:titulo="Esse é o título"></jaci-titulo>
+			<jaci-titulo v-bind:titulo="meuTitulo"></jaci-titulo>
 			<input type="text" v-model="meuTitulo">
+
 		</div>
 
 		<script type="text/javascript">
 
 		Vue.component('jaci-titulo', {
 			props:['titulo'],
-			template:'<h2>{{titulo}}</h2>'
+			template:'<h2>{{ titulo }}</h2>'
+		});
+
+		Vue.component('jaci-tabela', {
+			props:['titulos','registros'],
+			template:'<table style="width:100%">' +
+				'<thead>' +
+					'<tr>' +
+						'<th>Nome</th>' +
+						'<th>E-mail</th>' +
+					'</tr>' +
+				'</thead>' +
+				'<tbody>' +
+					'<tr>' +
+						'<td>Jaciana</td>' +
+						'<td>jaci@gmail.com</td>' +
+					'</tr>' +
+				'</tbody>' +
+			'</table>'
 		});
 
 			var app = new Vue({
 				el: "#app",
 				data:{
-					meuTitulo:'Esse é o título'
+					meuTitulo:'esse é o titulo'
 				}
 			});
 			
