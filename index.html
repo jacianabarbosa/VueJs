@@ -6,47 +6,53 @@
 		<title>Introdução ao Vue JS</title>
 		<script src="https://unpkg.com/vue"></script>
 	</head>
+
 	<body>
 
 		<div id="app">
 			<jaci-titulo v-bind:titulo="meuTitulo"></jaci-titulo>
 			<input type="text" v-model="meuTitulo">
-			<jaci-tabela titulos="registros"></jaci-tabela>
+			<jaci-tabela v-bind:titulos="['	Título', 'Descrição', 'Link']" v-bind:registros="registros"></jaci-tabela>
 
 		</div>
 
 		<script type="text/javascript">
 
-		Vue.component('jaci-titulo', {
-			props:['titulo'],
-			template:'<h2>{{ titulo }}</h2>'
-		});
+			Vue.component('jaci-titulo', {
+				props: ['titulo'],
+				template: '<h2>{{ titulo }}</h2>'
+			});
 
-		Vue.component('jaci-tabela', {
-			props:['titulos','registros'],
-			template:'<table style="width:100%">' +
+			Vue.component('jaci-tabela', {
+				props: ['titulos', 'registros'],
+				template: '<table style="width:100%">' +
 				'<thead>' +
-					'<tr>' +
-						'<th>Nome</th>' +
-						'<th>E-mail</th>' +
-					'</tr>' +
+				'<tr>' +
+				'<th v-for="titulo in titulos">{{titulo}}</th>' +
+				'</tr>' +
 				'</thead>' +
 				'<tbody>' +
-					'<tr>' +
-						'<td>Jaciana</td>' +
-						'<td>jaci@gmail.com</td>' +
-					'</tr>' +
+				'<tr v-for="registro in registros">' +
+				'<td v-for="item in registro">{{item}}</td>' +
+				'<td>{{registro.descricao}}</td>' +
+				'</tr>' +
 				'</tbody>' +
-			'</table>'
-		});
+				'</table>'
+			});
 
 			var app = new Vue({
 				el: "#app",
-				data:{
-					meuTitulo:'esse é o titulo'
+				data: {
+					meuTitulo: 'esse é o titulo',
+					registros:[
+						{titulo:'Título 1', Descricao:'descricao 1', Link:'link1'},
+						{titulo:'Título 2', Descricao:'descricao 2', Link:'link2'},
+						{titulo:'Título 3', Descricao:'descricao 3', Link:'link3'}
+					]
+
 				}
 			});
-			
+
 		</script>
 	</body>
 
