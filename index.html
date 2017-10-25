@@ -12,9 +12,21 @@
 		<div id="app">
 			<jaci-titulo v-bind:titulo="meuTitulo"></jaci-titulo>
 			<input type="text" v-model="meuTitulo">
-			<jaci-tabela v-bind:titulos="['Título', 'Descrição','Link']" v-bind:registros="registros"></jaci-tabela>
+			<jaci-tabela v-bind:titulos="['Título', 'Descrição','Link', 'Valor']" v-bind:registros="registros"></jaci-tabela>
 			<p v-once>{{meuTitulo}}</p>
 			<p v-html="html"></p>
+			<p>{{ 25.9800098 | TrataValor }}</p>
+
+			<ul>
+				<li v-for="registro in registros">
+					{{registro.titulo}} - {{registro.Descricao}} - {{registro.Link}} - {{registro.Valor | TrataValor }}
+				</li>
+			</ul>
+			<p>Total (methods): {{ totalValorMetodo() | TrataValor}}</p>
+			<p>Total (computed): {{ totalValorComputado | TrataValor}}</p>
+			<p>contaMethods: {{ contaMethods }}</p>
+			<p>contaComputed: {{ contaComputed }}</p>
+
 		</div>
 
 		<script type="text/javascript">
@@ -43,15 +55,43 @@
 
 			var app = new Vue({
 				el: "#app",
-				data: {
-					meuTitulo: 'esse é o titulo',
-					registros:[
-						{titulo:'Título 1', Descricao:'descricao 1', Link:'link1'},
-						{titulo:'Título 2', Descricao:'descricao 2', Link:'link2'},
-						{titulo:'Título 3', Descricao:'descricao 3', Link:'link3'}
-					],
-					html:'<a href="#">Esse é um link</a>'
-
+				data(){
+					return{
+						meuTitulo: 'esse é o titulo',
+						registros:[
+							{titulo:'Título 1', Descricao:'descricao 1', Link:'link1', Valor: 30.01010},
+							{titulo:'Título 2', Descricao:'descricao 2', Link:'link2', Valor: 31.20202},
+							{titulo:'Título 3', Descricao:'descricao 3', Link:'link3', Valor: 32}
+						],
+						html:'<a href="#">Esse é um link</a>',
+						contaMethods:0,
+						contaComputed:0
+					}  	
+				},
+				filters:{
+					TrataValor(valor){
+						return  ('R$'+(valor).toFixed(2)).replace('.',','); 
+					}
+				},
+				methods:{
+					totalValorMetodo(){
+						this.contaMethods++;
+						var total=0;
+						for(item of this.registros){
+							total+= item.Valor;
+						}
+						return total;
+					}
+				},
+				computed:{
+					totalValorComputado(){
+						this.contaComputed++;
+						var total=0;
+						for(item of this.registros){
+							total+= item.Valor;
+						}
+						return total;
+					}
 				}
 			});
 
