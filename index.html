@@ -12,8 +12,9 @@
 		<div id="app">
 			<jaci-titulo v-bind:titulo="meuTitulo"></jaci-titulo>
 			<input type="text" v-model="meuTitulo">
-			<jaci-tabela v-bind:titulos="['	Título', 'Descrição', 'Link']" v-bind:registros="registros"></jaci-tabela>
-
+			<jaci-tabela v-bind:titulos="['Título', 'Descrição','Link']" v-bind:registros="registros"></jaci-tabela>
+			<p v-once>{{meuTitulo}}</p>
+			<p v-html="html"></p>
 		</div>
 
 		<script type="text/javascript">
@@ -48,12 +49,12 @@
 						{titulo:'Título 1', Descricao:'descricao 1', Link:'link1'},
 						{titulo:'Título 2', Descricao:'descricao 2', Link:'link2'},
 						{titulo:'Título 3', Descricao:'descricao 3', Link:'link3'}
-					]
+					],
+					html:'<a href="#">Esse é um link</a>'
 
 				}
 			});
 
 		</script>
 	</body>
-
-</html>
+</html> 
