@@ -22,10 +22,14 @@
 					{{registro.titulo}} - {{registro.Descricao}} - {{registro.Link}} - {{registro.Valor | TrataValor }}
 				</li>
 			</ul>
-			<p>Total (methods): {{ totalValorMetodo() | TrataValor}}</p>
-			<p>Total (computed): {{ totalValorComputado | TrataValor}}</p>
+			<p>Total (methods): {{ totalValorMetodo() | TrataValor }}</p>
+			<p>Total (computed): {{ totalValorComputado | TrataValor }}</p>
 			<p>contaMethods: {{ contaMethods }}</p>
 			<p>contaComputed: {{ contaComputed }}</p>
+			<p>
+				<input type="text" v-model="nome" placeholder="Nome">
+			</p>
+			<p>Aterações: {{contaAlteracoes}}</p>
 
 		</div>
 
@@ -65,7 +69,8 @@
 						],
 						html:'<a href="#">Esse é um link</a>',
 						contaMethods:0,
-						contaComputed:0
+						contaComputed:0,
+						nome: ''
 					}  	
 				},
 				filters:{
@@ -91,6 +96,9 @@
 							total+= item.Valor;
 						}
 						return total;
+					},
+					watch:{
+
 					}
 				}
 			});
