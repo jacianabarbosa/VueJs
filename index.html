@@ -29,7 +29,7 @@
 			<p>
 				<input type="text" v-model="nome" placeholder="Nome">
 			</p>
-			<p>Aterações: {{contaAlteracoes}}</p>
+			<p>Aterações: {{ contaAlteracoes }}</p>
 
 		</div>
 
@@ -70,7 +70,8 @@
 						html:'<a href="#">Esse é um link</a>',
 						contaMethods:0,
 						contaComputed:0,
-						nome: ''
+						nome: '',
+						contaAlteracoes:0
 					}  	
 				},
 				filters:{
@@ -98,7 +99,9 @@
 						return total;
 					},
 					watch:{
-
+						nome:function(valor){
+							this.contaAlteracoes++;
+						}
 					}
 				}
 			});
