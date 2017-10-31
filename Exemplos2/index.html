@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Introdução ao Vue JS</title>
+		<script src="https://unpkg.com/vue"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" 
+		integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+	</head>
+
+	<body>
+
+		<div id="app">
+			<jaci-titulo v-bind:titulo="meuTitulo"></jaci-titulo>
+			<input type="text" v-model="meuTitulo">
+			<jaci-tabela v-bind:titulos="['Título', 'Descrição','Link', 'Valor']" v-bind:registros="registros"></jaci-tabela>
+			<p v-once>{{meuTitulo}}</p>
+			<p v-html="html"></p>
+			<p>{{ 25.9800098 | TrataValor }}</p>
+
+			<ul>
+				<li v-for="registro in registros">
+					{{registro.titulo}} - {{registro.Descricao}} - {{registro.Link}} - {{registro.Valor | TrataValor }}
+				</li>
+			</ul>
+			<p>Total (methods): {{ totalValorMetodo() | TrataValor }}</p>
+			<p>Total (computed): {{ totalValorComputado | TrataValor }}</p>
+			<p>contaMethods: {{ contaMethods }}</p>
+			<p>contaComputed: {{ contaComputed }}</p>
+			<p>
+				<input type="text" v-model="nome" placeholder="Nome">
+			</p>
+			<p>Aterações:{{ contaAlteracoes }}</p>
+
+		</div>
+
+		<script type="text/javascript">
+
+			Vue.component('jaci-titulo', {
+				props: ['titulo'],
+				template: '<h2>{{ titulo }}</h2>'
+			});
+
+			Vue.component('jaci-tabela', {
+				props: ['titulos', 'registros'],
+				template: '<table class="table" style="width:100%">' +
+				'<thead>' +
+				'<tr>' +
+				'<th v-for="titulo in titulos">{{titulo}}</th>' +
+				'</tr>' +
+				'</thead>' +
+				'<tbody>' +
+				'<tr v-for="registro in registros">' +
+				'<td v-for="item in registro">{{item}}</td>' +
+				'<td>{{registro.descricao}}</td>' +
+				'</tr>' +
+				'</tbody>' +
+				'</table>'
+			});
+
+			var app = new Vue({
+				el: "#app",
+				data(){
+					return{
+						meuTitulo: 'esse é o titulo',
+						registros:[
+							{titulo:'Título 1', Descricao:'descricao 1', Link:'link1', Valor: 30.01010},
+							{titulo:'Título 2', Descricao:'descricao 2', Link:'link2', Valor: 31.20202},
+							{titulo:'Título 3', Descricao:'descricao 3', Link:'link3', Valor: 32}
+						],
+						html:'<a href="#">Esse é um link</a>',
+						contaMethods:0,
+						contaComputed:0,
+						nome: '',
+						contaAlteracoes:0
+					}  	
+				},
+				filters:{
+					TrataValor(valor){
+						return  ('R$'+(valor).toFixed(2)).replace('.',','); 
+					}
+				},
+				methods:{
+					totalValorMetodo(){
+						//this.contaMethods++;
+						var total=0;
+						for(item of this.registros){
+							total+= item.Valor;
+						}
+						return total;
+					}
+				},
+				computed:{
+					totalValorComputado(){
+						this.contaComputed++;
+						var total=0;
+						for(item of this.registros){
+							total+= item.Valor;
+						}
+						return total;
+					}
+				},
+				watch:{
+					nome:function(valor){
+						this.contaAlteracoes++;
+						this.nome = valor.toUpperCase();
+					}
+				}
+			});
+
+		</script>
+	</body>
+</html> 
