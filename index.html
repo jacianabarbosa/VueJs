@@ -1,75 +1,75 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<meta charset="utf-8">
-		<title>Introdução ao Vue JS</title>
-		<script src="https://unpkg.com/vue"></script>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" 
-		integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-	</head>
+<head>
+    <meta charset="utf-8">
+    <title>Introdução ao Vue JS</title>
+    <script src="https://unpkg.com/vue"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+</head>
 
-	<body>
-			
-					
-		<!-- <div class="row">
+<body>
+
+
+    <!-- <div class="row">
 			<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
 				<h1>Directives</h1>
 
 			</div>
 		</div> -->
-					
-			<div id="app" class="container">
-			<jaci-titulo titulo="Formulários"></jaci-titulo>
-		
-			<p>Texto: {{texto}}</p>
-			<p>
-				<input type="text" v-model="texto">
-			</p>
-		
-		
-			<p>Textarea: {{textarea}} </p>
-			<p style="white-space: pre-line">{{textarea}}</p>
-			<p>
-				<textarea v-model="textarea" rows="8" cols="80"></textarea>
-			</p>
-			
-			<p>Checkbox:</p>
-			<input type="checkbox" id="aceitaTermos" v-model="termos"/>
-			<label for="aceitaTermos">{{ termos }}</label>
 
-			<p>Multiple Checkboxes:{{notificacoes}}</p>
-			<p>
-				<input type="checkbox" id="receberEmail" value="email" v-model="notificacoes"/>
-				<label for="receberEmail">Receber e-mail</label>
-				<input type="checkbox" id="receberSMS" value="sms" v-model="notificacoes"/>
-				<label for="receberSMS">Receber SMS</label>
-				<input type="checkbox" id="receberTelefone" value="telefone" v-model="notificacoes"/>
-				<label for="receberTelefone">Receber Ligação</label>
-			</p> 
-			
-			<p>Radio:{{sexo}}</p>
-			<p>
-				<input type="radio" name="" id="masculino" value="M" v-model="sexo">
-				<label for="masculino">Masculino</label>
-				<input type="radio" name="" id="feminino" value="F" v-model="sexo">
-				<label for="feminino">Feminino</label>
+    <div id="app" class="container">
+        <jaci-titulo titulo="Formulários"></jaci-titulo>
 
-			</p>
+        <p>Texto: {{texto}}</p>
+        <p>
+            <input type="text" v-model="texto">
+        </p>
 
-			<p>Select {{ano}}</p>
-			<p>
-				<select v-model="ano">
+
+        <p>Textarea: {{textarea}} </p>
+        <p style="white-space: pre-line">{{textarea}}</p>
+        <p>
+            <textarea v-model="textarea" rows="8" cols="80"></textarea>
+        </p>
+
+        <p>Checkbox:</p>
+        <input type="checkbox" id="aceitaTermos" v-model="termos" />
+        <label for="aceitaTermos">{{ termos }}</label>
+
+        <p>Multiple Checkboxes:{{notificacoes}}</p>
+        <p>
+            <input type="checkbox" id="receberEmail" value="email" v-model="notificacoes" />
+            <label for="receberEmail">Receber e-mail</label>
+            <input type="checkbox" id="receberSMS" value="sms" v-model="notificacoes" />
+            <label for="receberSMS">Receber SMS</label>
+            <input type="checkbox" id="receberTelefone" value="telefone" v-model="notificacoes" />
+            <label for="receberTelefone">Receber Ligação</label>
+
+        </p>
+
+        <p>Radio:{{sexo}}</p>
+        <p>
+            <input type="radio" name="" id="masculino" value="M" v-model="sexo">
+            <label for="masculino">Masculino</label>
+            <input type="radio" name="" id="feminino" value="F" v-model="sexo">
+            <label for="feminino">Feminino</label>
+
+        </p>
+
+        <p>Select {{ano}}</p>
+        <p>
+            <select v-model="ano">
 					<option disabled value="">Escolha o ano</option>
 					<option value="2017">Ano 2017</option>
 					<option value="2018">Ano 2018</option>
 					<option value="2019">Ano 2019</option>
 				</select>
-			</p>
+        </p>
 
-			<p>Multiple Selects {{cores}}</p>
-			<p>
-				<select multiple v-model="cores">
+        <p>Multiple Selects {{cores}}</p>
+        <p>
+            <select multiple v-model="cores">
 
 					<option disabled value="">Escolha as cores</option>
 					<option>Azul</option>
@@ -77,50 +77,49 @@
 					<option>Vermelho</option>
 
 				</select>
-			</p>
-			<p>Lazy: {{busca}} </p>
-			<input type="text" v-model.lazy="busca"> 
+        </p>
+        <p>Lazy: {{busca}} </p>
+        <input type="text" v-model.lazy="busca">
 
-			<p>Number: {{idade}} - tipo: {{typeof idade}}</p>
-			<p>
-				<input type="number" v-model.number="idade">
-			</p> 
-
-
-		</div>
-
-		<script type="text/javascript">
-
-			Vue.component('jaci-titulo', {
-				props: ['titulo'],
-				template: '<h2>{{ titulo }}</h2>'
-			});
+        <p>Number: {{idade}} - tipo: {{typeof idade}}</p>
+        <p>
+            <input type="number" v-model.number="idade">
+        </p>
 
 
-			var app = new Vue({
-				el: "#app",
-				data() {
-					return {
-						texto:'',
-						textarea:'',
-						termos: false,
-						notificacoes:[],
-						sexo: null,
-						ano: null,
-						cores: null,
-						busca: '',
-						idade: null
-					}
+    </div>
 
-				},
-				watch: {
-					idade(){
-						if(this.idade == '' )
-							this.idade = 0;
-					}
-				}		
-			});
+    <script type="text/javascript">
+        Vue.component('jaci-titulo', {
+            props: ['titulo'],
+            template: '<h2>{{ titulo }}</h2>'
+        });
 
-		</script>
-	</body>
-</html> 
+
+        var app = new Vue({
+            el: "#app",
+            data() {
+                return {
+                    texto: '',
+                    textarea: '',
+                    termos: false,
+                    notificacoes: [],
+                    sexo: null,
+                    ano: null,
+                    cores: null,
+                    busca: '',
+                    idade: null
+                }
+
+            },
+            watch: {
+                idade() {
+                    if (this.idade == '')
+                        this.idade = 0;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
