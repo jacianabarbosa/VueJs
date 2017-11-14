@@ -20,18 +20,8 @@ export default {
       nomeProjeto: 'Netflix com Vue',
       intervalo:null
     }
-  },
-  methods:{
-    scrollDireita(){
-      this.intervalo = setInterval(function(){ document.getElementById('scroller').scrollLeft += 1 }  , 5);
-    },
-    scrollEsquerda(){
-      this.intervalo = setInterval(function(){ document.getElementById('scroller').scrollLeft -= 1 }  , 5);
-    },
-    clearScroll(){
-      clearInterval(this.intervalo);
-    }
   }
+  
 }
 </script>
 

@@ -5,7 +5,7 @@
         <i class="fa fa-caret-left" aria-hidden="true"></i>
     </span>
 
-    <div id="scroller" class="row">
+    <div ref="scroller" class="row">
         <div class="row__inner">
           <div class="gui-card">
             <div class="gui-card__media">
@@ -113,12 +113,15 @@ export default {
   props: ["titulo"],
   methods:{
     scrollDireita(){
-      this.intervalo = setInterval(function(){ document.getElementById('scroller').scrollLeft += 1 }  , 5);
+        const self= this;
+      this.intervalo = setInterval(function(){ self.$refs.scroller.scrollLeft += 1 }  , 5);
     },
     scrollEsquerda(){
-      this.intervalo = setInterval(function(){ document.getElementById('scroller').scrollLeft -= 1 }  , 5);
+        const self= this;
+      this.intervalo = setInterval(function(){ self.$refs.scroller.scrollLeft -= 1 }  , 5);
     },
     clearScroll(){
+        const self= this;
       clearInterval(this.intervalo);
     }
   }
