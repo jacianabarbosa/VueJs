@@ -23,42 +23,24 @@ export default {
 
   },
   created(){
-    console.log('Created');
+     this.$http.get('http://localhost:3000/categorias').then(res => {
+       this.categorias = res.body;
+     }) 
+
   },
   beforeMount(){
     console.log('beforeMount');
   },
 
-
   data () {
     return {
       nomeProjeto: 'Netflix com Vue',
       intervalo:null,
-      categorias:[
-        {
-          "id":1,
-          "titulo":"terror",
-          "filmes":[
-            {
-              "id":1, "titulo":"it: a coisa", "imagem":"http://cosmonerd.com.br/wp-content/uploads/2017/08/It-A-Coisa-capa-post-cosmonerd-ingresso.jpg"
-            },
-            {
-              "id":2, "titulo":"it: a coisa", "imagem":"http://cosmonerd.com.br/wp-content/uploads/2017/08/It-A-Coisa-capa-post-cosmonerd-ingresso.jpg"
-            },
-            {
-              "id":3, "titulo":"it: a coisa", "imagem":"http://cosmonerd.com.br/wp-content/uploads/2017/08/It-A-Coisa-capa-post-cosmonerd-ingresso.jpg"
-            },
-
-
-
-            
-          ]
-        }
-      ] 
+      categorias:[]
     }
   }
-}
 
+}
 </script>
 
 <style lang="scss">
