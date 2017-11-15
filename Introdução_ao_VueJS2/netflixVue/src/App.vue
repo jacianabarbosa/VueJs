@@ -1,7 +1,8 @@
 <template>
   <div class="contain">
-    <categoria titulo="Comédia"></categoria>
-    <categoria titulo="Suspense"></categoria>
+    <categoria v-for="categoria in categorias" 
+   v-bind:key="categoria.id" v-bind:titulo="categoria.titulo" v-bind:filmes="categoria.filmes"></categoria>
+    
   </div>
 
 </template>
@@ -9,20 +10,55 @@
 <script>
 
 import Categoria from './componentes/Categoria.vue';
+// import Filme from './Filme.vue'
 
 export default {
   name: 'app',
   components:{
     Categoria
   },
+
+  beforeCreate(){
+    console.log('beforeCreate');
+
+  },
+  created(){
+    console.log('Created');
+  },
+  beforeMount(){
+    console.log('beforeMount');
+  },
+
+
   data () {
     return {
       nomeProjeto: 'Netflix com Vue',
-      intervalo:null
+      intervalo:null,
+      categorias:[
+        {
+          "id":1,
+          "titulo":"terror",
+          "filmes":[
+            {
+              "id":1, "titulo":"it: a coisa", "imagem":"http://cosmonerd.com.br/wp-content/uploads/2017/08/It-A-Coisa-capa-post-cosmonerd-ingresso.jpg"
+            },
+            {
+              "id":2, "titulo":"it: a coisa", "imagem":"http://cosmonerd.com.br/wp-content/uploads/2017/08/It-A-Coisa-capa-post-cosmonerd-ingresso.jpg"
+            },
+            {
+              "id":3, "titulo":"it: a coisa", "imagem":"http://cosmonerd.com.br/wp-content/uploads/2017/08/It-A-Coisa-capa-post-cosmonerd-ingresso.jpg"
+            },
+
+
+
+            
+          ]
+        }
+      ] 
     }
   }
-  
 }
+
 </script>
 
 <style lang="scss">

@@ -1,34 +1,20 @@
 <template>
- <div class="slider">
+  <div class="slider">
     <h3>{{titulo}}</h3>
     <span v-on:mouseover="scrollEsquerda()" v-on:mouseout="clearScroll()" class="handle handlePrev active">
         <i class="fa fa-caret-left" aria-hidden="true"></i>
     </span>
 
     <div ref="scroller" class="row">
-        <div class="row__inner">
-
-          <filme titulo="Outro Titulo" imagem="https://img1.ibxk.com.br/2015/11/12/12134915138723.jpg?w=700"></filme>
-          <filme titulo="Outro Titulo" imagem="https://img1.ibxk.com.br/2015/11/12/12134915138723.jpg?w=700"></filme>
-          <filme titulo="Outro Titulo" imagem="https://img1.ibxk.com.br/2015/11/12/12134915138723.jpg?w=700"></filme>
-          <filme titulo="Outro Titulo" imagem="https://img1.ibxk.com.br/2015/11/12/12134915138723.jpg?w=700"></filme>
-          <filme titulo="Outro Titulo" imagem="https://img1.ibxk.com.br/2015/11/12/12134915138723.jpg?w=700"></filme>
-          <filme titulo="Outro Titulo" imagem="https://img1.ibxk.com.br/2015/11/12/12134915138723.jpg?w=700"></filme>
-        
-         
-      
-         
-         
-       
-    
-
-        </div>
+       <div class="row__inner">
+         <filme v-for="filme in filmes" v-bind:key="filme.id" v-bind:titulo="filme.titulo" v-bind:imagem="filme.imagem"></filme>
       </div>
-
+    </div>
+      
       <span v-on:mouseover="scrollDireita()" v-on:mouseout="clearScroll()"  class="handle handleNext active">
         <i class="fa fa-caret-right" aria-hidden="true"></i>
       </span>
-    </div>
+  </div>
 
 </template>
 
@@ -36,7 +22,7 @@
 import Filme from './Filme.vue';
 
 export default {
-  props: ["titulo"],
+  props: ["titulo", "filmes"],
   components:{
       Filme
   },
@@ -44,11 +30,11 @@ export default {
   methods:{
     scrollDireita(){
         const self= this;
-      this.intervalo = setInterval(function(){ self.$refs.scroller.scrollLeft += 1 }  , 5);
+      this.intervalo = setInterval(function(){ self.$refs.scroller.scrollLeft += 1 }, 5);
     },
     scrollEsquerda(){
         const self= this;
-      this.intervalo = setInterval(function(){ self.$refs.scroller.scrollLeft -= 1 }  , 5);
+      this.intervalo = setInterval(function(){ self.$refs.scroller.scrollLeft -= 1 }, 5);
     },
     clearScroll(){
         const self= this;
@@ -62,6 +48,6 @@ export default {
 
 <style lang="scss">
 h3{
-    color: red;
+    color: white;
 }
 </style>

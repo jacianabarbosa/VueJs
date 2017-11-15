@@ -1,0 +1,23 @@
+{
+    "categorias": [{
+        "id": 1,
+        "titulo": "terror",
+        "filmes": [{
+                "id": 1,
+                "titulo": "it: a coisa",
+                "imagem": "http://cosmonerd.com.br/wp-content/uploads/2017/08/It-A-Coisa-capa-post-cosmonerd-ingresso.jpg"
+            },
+            {
+                "id": 2,
+                "titulo": "it: a coisa",
+                "imagem": "http://cosmonerd.com.br/wp-content/uploads/2017/08/It-A-Coisa-capa-post-cosmonerd-ingresso.jpg"
+            },
+            {
+                "id": 3,
+                "titulo": "it: a coisa",
+                "imagem": "http://cosmonerd.com.br/wp-content/uploads/2017/08/It-A-Coisa-capa-post-cosmonerd-ingresso.jpg"
+            }
+
+        ]
+    }]
+}
