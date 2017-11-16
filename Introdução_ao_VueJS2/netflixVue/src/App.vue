@@ -2,8 +2,9 @@
   <div class="contain">
     <categoria v-for="categoria in categorias" 
    v-bind:key="categoria.id" v-bind:titulo="categoria.titulo" v-bind:filmes="categoria.filmes"></categoria>
-    
+    <!-- <router-view></router-view> -->
   </div>
+  
 
 </template>
 

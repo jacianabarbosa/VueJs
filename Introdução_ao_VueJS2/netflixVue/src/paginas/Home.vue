@@ -1,10 +1,9 @@
 <template>
   <div class="contain">
-    <categoria v-for="categoria in categorias" 
-   v-bind:key="categoria.id" v-bind:titulo="categoria.titulo" v-bind:filmes="categoria.filmes"></categoria>
-    
+    <app-categoria v-for="categoria in categorias" 
+      v-bind:key="categoria.id" v-bind:titulo="categoria.titulo" v-bind:filmes="categoria.filmes">
+      </app-categoria>
   </div>
-
 </template>
 
 <script>
@@ -15,7 +14,7 @@ import Categoria from '../componentes/Categoria.vue';
 export default {
   name: 'app',
   components:{
-    Categoria
+    appCategoria: Categoria
   },
 
   beforeCreate(){
@@ -25,8 +24,7 @@ export default {
   created(){
      this.$http.get('http://localhost:3000/categorias').then(res => {
        this.categorias = res.body;
-     }) 
-
+     });
   },
   beforeMount(){
     console.log('beforeMount');
@@ -35,8 +33,8 @@ export default {
   data () {
     return {
       nomeProjeto: 'Netflix com Vue',
-      intervalo:null,
-      categorias:[]
+      intervalo: null,
+      categorias: []
     }
   }
 
