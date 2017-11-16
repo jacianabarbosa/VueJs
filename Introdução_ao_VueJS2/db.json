@@ -1,23 +1,69 @@
 {
     "categorias": [{
-        "id": 1,
-        "titulo": "terror",
-        "filmes": [{
-                "id": 1,
-                "titulo": "it: a coisa",
-                "imagem": "http://cosmonerd.com.br/wp-content/uploads/2017/08/It-A-Coisa-capa-post-cosmonerd-ingresso.jpg"
-            },
-            {
-                "id": 2,
-                "titulo": "it: a coisa",
-                "imagem": "http://cosmonerd.com.br/wp-content/uploads/2017/08/It-A-Coisa-capa-post-cosmonerd-ingresso.jpg"
-            },
-            {
-                "id": 3,
-                "titulo": "it: a coisa",
-                "imagem": "http://cosmonerd.com.br/wp-content/uploads/2017/08/It-A-Coisa-capa-post-cosmonerd-ingresso.jpg"
-            }
+            "id": 1,
+            "titulo": "Ação",
+            "filmes": [{
+                    "id": 1,
+                    "titulo": "A Múmia",
+                    "imagem": "http://cinemacomrapadura.com.br/imagens/2017/06/20170608-the-mummy-a-mumia-2017-tom-cruisi.jpg"
+                },
+                {
+                    "id": 2,
+                    "titulo": "Thor: Ragnarok",
+                    "imagem": "https://i.ytimg.com/vi/uvIrSDAkEHA/maxresdefault.jpg"
+                },
+                {
+                    "id": 3,
+                    "titulo": "Logan",
+                    "imagem": "https://acastprod.blob.core.windows.net/media/acasts/4792b6c5-f6b1-4bd2-a970-a8718ef3dd02/image/logan-2017-poster.jpg"
+                },
+                {
+                    "id": 4,
+                    "titulo": "Liga da Justiça",
+                    "imagem": "http://seriesemcena.com.br/wp-content/uploads/2017/03/Liga.jpg"
+                },
+                {
+                    "id": 5,
+                    "titulo": "Mulher Maravilha",
+                    "imagem": "http://soulart.org/wordpress/wp-content/uploads/2017/06/Gal-Gadot-as-Wonder-Woman-2017_1920x1200.jpg"
+                }
+            ]
 
-        ]
-    }]
+        },
+
+
+        {
+            "id": 2,
+            "titulo": "Terror",
+            "filmes": [{
+                    "id": 1,
+                    "titulo": "It: A Coisa",
+                    "imagem": "http://sm.ign.com/ign_br/gallerycomparison/i/it-how-the/it-how-the-stephen-king-remake-compares-to-the-original-tv-m_rb4w.jpg"
+                },
+                {
+                    "id": 2,
+                    "titulo": "Annabelle 2: A Criação do Mal",
+                    "imagem": "http://noset.com.br/wp-content/uploads/2017/06/Annabelle-2-geeksaw.jpg"
+                },
+                {
+                    "id": 3,
+                    "titulo": "Alien: Covenant",
+                    "imagem": "https://i.ytimg.com/vi/vHvR44EO2nk/maxresdefault.jpg"
+                },
+                {
+                    "id": 4,
+                    "titulo": "Olhos Faintos 3",
+                    "imagem": "https://cdn.movieweb.com/img.news.tops/NEucMFk7iHpnxz_1_b/Jeepers-Creepers-3-Trailer.jpg"
+                },
+                {
+                    "id": 5,
+                    "titulo": "Jogos Mortais: Jigsaw",
+                    "imagem": "https://media.metrolatam.com/2017/07/20/jigsawtrailer-1200x600.jpg"
+                }
+            ]
+
+        }
+
+    ]
+
 }
